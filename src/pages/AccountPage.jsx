@@ -1,5 +1,6 @@
-import React from 'react'
-
+import { Link } from 'react-router-dom';
+import oliviaimg from '../assets/Olivia.png';
+import momimg from '../assets/Mom.png';
 const AccountPage = () => {
   return (
    
@@ -27,4 +28,4 @@ const AccountPage = () => {
   )
 }
 
-export default Account
+export default AccountPage
