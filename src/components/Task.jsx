@@ -6,7 +6,6 @@ const Task = (props) => {
   return (
     
     <div>
-
       <button onClick={() => props.handleClick()}>
       <div className="mb-3 w-80 h-20 mx-auto container bg-reallywhite flex rounded-medium shadow relative">
         <div className="my-auto">

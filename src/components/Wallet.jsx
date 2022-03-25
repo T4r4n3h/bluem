@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Pocket from "../components/Pocket";
 import Task from "../components/Task";
 import Footer from "../components/Footer";
@@ -25,13 +25,24 @@ const Wallet = (props) => {
         { id: 6,title: 'Clean Room', img: Lamp, date: 'Today', reward: 10.0, completed: true, pending: false, approved: true, chosen: false },
         { id: 7,title: 'Car wash with dad', img: Car, date: 'Wednesday', reward: 2.00, completed: true, pending: false, approved: true, chosen: false },
     ])
+    
     const [total, setTotal] = useState(0)
-
-
-   const handleClick = (id) => {
-        alert('you click on me mother fucker!', id)
-            
-    }
+  
+  
+     const handleClick = (id) => {
+        console.log(`this is the id ${id} please log `)
+        for(let i = 0; i <approvedMission.length; i++) {
+          if(approvedMission[i].id === id) {
+            setTotal(approvedMission[i].reward+=total)
+            setApprovedMission(approvedMission.filter(mission => mission.id !== id))
+  
+          }
+        }
+      console.log(total)
+      }
+      useEffect(() => {
+  
+      },[])
     
     return (
       <div className="home-page">
@@ -50,7 +61,9 @@ const Wallet = (props) => {
         </div>
 
         {/* Pocket */}
-        <Pocket total={total} />
+        <Pocket 
+        total={total}
+         />
 
         {/* Show Index of Selected Missions */}
         <div className="mx-auto">
@@ -74,7 +87,7 @@ const Wallet = (props) => {
               img={mission.img}
               date={mission.date}
               reward={mission.reward}
-              handleClick={(id) => handleClick("happy")}
+              handleClick={(id) => handleClick(mission.id)}
             />
           ))}
         </div>

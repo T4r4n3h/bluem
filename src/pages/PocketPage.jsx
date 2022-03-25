@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import Balance from '../components/Balance';
 import Task from '../components/Task';
 import Recycle from '../assets/Recycle.png'
@@ -22,15 +22,26 @@ const PocketPage = () => {
       {title:'Clean Room',img:Lamp, date:'Today', reward:'10.00', completed:true, pending:false, approved: true, chosen:false},
       {title:'Car wash with dad',img:Car, date:'Wednesday', reward:'2.00', completed:true, pending:false, approved: true, chosen:false},
   ]
-  ) 
+  )
 
   return (
     <div>
-      <Balance/>
+      <Balance 
+      // total={total}
+      />
       <p className="title">Completed Mission</p>
      {approvedMission.map((mission) => (
-       <Task title={mission.title} img={mission.img} date={mission.date} reward={mission.reward}/>
-
+       
+       
+       <Task
+              key={mission.id}
+              title={mission.title}
+              img={mission.img}
+              date={mission.date}
+              reward={mission.reward}
+              // handleClick={(id) => handleClick(mission.id)}
+            />
+       
        ))}
 
     </div>

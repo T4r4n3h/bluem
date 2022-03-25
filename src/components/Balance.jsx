@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import oliviaimg from "../assets/Olivia.png";
 import momimg from "../assets/Mom.png";
 
-const Balance = () => {
+const Balance = (props) => {
     return (
       <div className="text-center mb-8 rounded-b-large mx-auto w-screen h-56 bg-cornflowerblue text-reallywhite shadow-2xl">
         <div className="">
@@ -35,7 +35,7 @@ const Balance = () => {
             height="50"
           />
           <p className="text-base mt-8 font-medium">Current Balance</p>
-          <p className="text-3xl tracking-widest font-bold">$23.00</p>
+          <p className="text-3xl tracking-widest font-bold"><span>$</span>{props.total}</p>
         </div>
       </div>
     );

@@ -1,11 +1,27 @@
-import React from 'react'
+import React, {useState}from 'react'
 import Logo from "../assets/Logo.png";
 import { Link } from "react-router-dom";
 
+
+
+
+
 const LoginForm = () => {
+
+  const [username, setUsername ] = useState('')
+  
+  const handleChange = (event) => {
+   setUsername({[event.target.value]: event.target.value})
+  }
+
+
+
+
+
+
     return (
       <div>
-        <div className="logo w-1/2 h-12 mx-auto h-40">
+        <div className="logo w-1/2 mx-auto h-40">
           <img className="mx-auto" src={Logo} alt="" />
         </div>
         <h1 className="text-3xl font-bold text-center text-cornflowerblue ">
@@ -21,6 +37,7 @@ const LoginForm = () => {
                 className="w-80 h-12 rounded-medium shadow pl-2"
                 name="username"
                 value=""
+                onChange={handleChange}
               />
             </label>
             <label>
@@ -31,6 +48,7 @@ const LoginForm = () => {
                 className="w-80 h-12 rounded-medium shadow pl-2"
                 name="reward"
                 value=""
+                onChange=''
               />
             </label>
 
